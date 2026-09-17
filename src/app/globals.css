@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f4ec;
-  --foreground: #2b2a26;
-  --paper-card: #fffdf7;
+  --background: #5c94fc;
+  --foreground: #24130b;
+  --paper-card: #fff4d6;
   --ink-soft: #6f6a5e;
   --line: #e5e0d2;
-  --accent: #4f46e5;
+  --accent: #e52521;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Courier New", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
-  background-image: radial-gradient(rgba(43, 42, 38, 0.055) 1px, transparent 1px);
-  background-size: 22px 22px;
+  font-family: "Courier New", monospace;
+  image-rendering: pixelated;
+  background-image: linear-gradient(rgba(255,255,255,.16) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.16) 2px, transparent 2px);
+  background-size: 32px 32px;
 }
 
 .font-display {
-  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-  letter-spacing: -0.01em;
+  font-family: "Courier New", monospace;
+  letter-spacing: .04em;
 }
 
 /* Minimal paper style (Goodnote-like) */
@@ -36,8 +37,10 @@ body {
 
 input, select, textarea {
   background: var(--paper-card) !important;
-  border: 1px solid var(--line) !important;
+  border: 3px solid var(--foreground) !important;
   color: var(--foreground) !important;
+  border-radius: 0 !important;
+  font-family: inherit;
 }
 
 input::placeholder, textarea::placeholder { color: #a8a094 !important; }
@@ -50,7 +53,16 @@ input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible
 button {
   font-family: inherit;
   cursor: pointer;
+  border: 3px solid var(--foreground) !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 var(--foreground) !important;
 }
+
+button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--foreground) !important; }
+aside, header, section, article, dialog, footer, [class*="bg-white"] { border: 3px solid var(--foreground) !important; background-color: var(--paper-card) !important; border-radius: 0 !important; }
+[class*="bg-indigo-600"], [class*="bg-[#4f46e5]"], [class*="bg-[#3525cd]"] { background-color: #e52521 !important; }
+[class*="text-indigo-600"], [class*="text-[#4f46e5]"] { color: #e52521 !important; }
+[class*="bg-[#f2f3ff]"], [class*="bg-indigo-100"] { background-color: #049cd8 !important; color: white !important; }
 
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined", sans-serif;
